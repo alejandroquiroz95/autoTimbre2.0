@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="btnSalir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnEncenderTimbre" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane1" alignment="0" min="-2" pref="391" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblHoras" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="spHoras" min="-2" pref="55" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="btnEliminar" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblMinutos" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="spMinutos" min="-2" pref="55" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblSegundos" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="spSegundos" min="-2" pref="55" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="btnAgregarHora" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblHoras" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblMinutos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSegundos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spHoras" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spMinutos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spSegundos" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAgregarHora" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="125" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnSalir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnEncenderTimbre" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblHoras">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Horas:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblMinutos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Minutos:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSegundos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Segundos:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="spHoras">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel type="list">
+            <ListItem value="00"/>
+            <ListItem value="01"/>
+            <ListItem value="02"/>
+            <ListItem value="03"/>
+            <ListItem value="04"/>
+            <ListItem value="05"/>
+            <ListItem value="06"/>
+            <ListItem value="07"/>
+            <ListItem value="08"/>
+            <ListItem value="09"/>
+            <ListItem value="10"/>
+            <ListItem value="11"/>
+            <ListItem value="12"/>
+            <ListItem value="13"/>
+            <ListItem value="14"/>
+            <ListItem value="15"/>
+            <ListItem value="16"/>
+            <ListItem value="17"/>
+            <ListItem value="18"/>
+            <ListItem value="19"/>
+            <ListItem value="20"/>
+            <ListItem value="21"/>
+            <ListItem value="22"/>
+            <ListItem value="23"/>
+          </SpinnerModel>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="spMinutos">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel type="list">
+            <ListItem value="00"/>
+            <ListItem value="01"/>
+            <ListItem value="02"/>
+            <ListItem value="03"/>
+            <ListItem value="04"/>
+            <ListItem value="05"/>
+            <ListItem value="06"/>
+            <ListItem value="07"/>
+            <ListItem value="08"/>
+            <ListItem value="09"/>
+            <ListItem value="10"/>
+            <ListItem value="11"/>
+            <ListItem value="12"/>
+            <ListItem value="13"/>
+            <ListItem value="14"/>
+            <ListItem value="15"/>
+            <ListItem value="16"/>
+            <ListItem value="17"/>
+            <ListItem value="18"/>
+            <ListItem value="19"/>
+            <ListItem value="20"/>
+            <ListItem value="21"/>
+            <ListItem value="22"/>
+            <ListItem value="23"/>
+            <ListItem value="24"/>
+            <ListItem value="25"/>
+            <ListItem value="26"/>
+            <ListItem value="27"/>
+            <ListItem value="28"/>
+            <ListItem value="29"/>
+            <ListItem value="30"/>
+            <ListItem value="31"/>
+            <ListItem value="32"/>
+            <ListItem value="33"/>
+            <ListItem value="34"/>
+            <ListItem value="35"/>
+            <ListItem value="36"/>
+            <ListItem value="37"/>
+            <ListItem value="38"/>
+            <ListItem value="39"/>
+            <ListItem value="40"/>
+            <ListItem value="41"/>
+            <ListItem value="42"/>
+            <ListItem value="43"/>
+            <ListItem value="44"/>
+            <ListItem value="45"/>
+            <ListItem value="46"/>
+            <ListItem value="47"/>
+            <ListItem value="48"/>
+            <ListItem value="49"/>
+            <ListItem value="50"/>
+            <ListItem value="51"/>
+            <ListItem value="52"/>
+            <ListItem value="53"/>
+            <ListItem value="54"/>
+            <ListItem value="55"/>
+            <ListItem value="56"/>
+            <ListItem value="57"/>
+            <ListItem value="58"/>
+            <ListItem value="59"/>
+          </SpinnerModel>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="spSegundos">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel type="list">
+            <ListItem value="00"/>
+            <ListItem value="01"/>
+            <ListItem value="02"/>
+            <ListItem value="03"/>
+            <ListItem value="04"/>
+            <ListItem value="05"/>
+            <ListItem value="06"/>
+            <ListItem value="07"/>
+            <ListItem value="08"/>
+            <ListItem value="09"/>
+            <ListItem value="10"/>
+            <ListItem value="11"/>
+            <ListItem value="12"/>
+            <ListItem value="13"/>
+            <ListItem value="14"/>
+            <ListItem value="15"/>
+            <ListItem value="16"/>
+            <ListItem value="17"/>
+            <ListItem value="18"/>
+            <ListItem value="19"/>
+            <ListItem value="20"/>
+            <ListItem value="21"/>
+            <ListItem value="22"/>
+            <ListItem value="23"/>
+            <ListItem value="24"/>
+            <ListItem value="25"/>
+            <ListItem value="26"/>
+            <ListItem value="27"/>
+            <ListItem value="28"/>
+            <ListItem value="29"/>
+            <ListItem value="30"/>
+            <ListItem value="31"/>
+            <ListItem value="32"/>
+            <ListItem value="33"/>
+            <ListItem value="34"/>
+            <ListItem value="35"/>
+            <ListItem value="36"/>
+            <ListItem value="37"/>
+            <ListItem value="38"/>
+            <ListItem value="39"/>
+            <ListItem value="40"/>
+            <ListItem value="41"/>
+            <ListItem value="42"/>
+            <ListItem value="43"/>
+            <ListItem value="44"/>
+            <ListItem value="45"/>
+            <ListItem value="46"/>
+            <ListItem value="47"/>
+            <ListItem value="48"/>
+            <ListItem value="49"/>
+            <ListItem value="50"/>
+            <ListItem value="51"/>
+            <ListItem value="52"/>
+            <ListItem value="53"/>
+            <ListItem value="54"/>
+            <ListItem value="55"/>
+            <ListItem value="56"/>
+            <ListItem value="57"/>
+            <ListItem value="58"/>
+            <ListItem value="59"/>
+          </SpinnerModel>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnEliminar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eliminar Horas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAgregarHora">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Agregar Hora"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="tblHoras">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="0" rowCount="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="btnSalir">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Salir"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnEncenderTimbre">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Encender Timbre"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+  </SubComponents>
+</Form>

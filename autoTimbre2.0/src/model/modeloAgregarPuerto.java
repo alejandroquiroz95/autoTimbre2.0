@@ -25,12 +25,11 @@ public class modeloAgregarPuerto {
     /**
      * Constructor de la clase para inicializar los atributos declarados
      * @param puerto Se pasa el parametro al puerto cuando se instacia como objeto
-     * @param listaPuertos Se pasa el parametro a la lista de puertos cuando se instacia como objeto
-     * @param puertoSeleccionado Se pasa el parametro al puerto seleccionado cuando se instacia como objeto
+     * @param listaPuertos Se pasa el parametro a la lista de puertos cuando se instacia la clase
+     * @param puertoSeleccionado Se pasa el parametro al puerto seleccionado cuando se instacia la clase
      */
     public modeloAgregarPuerto(String puerto, List<String> listaPuertos, String puertoSeleccionado){
         this.puerto = puerto;
-        //this.listaPuertos = new ArrayList<String>();
         this.listaPuertos = listaPuertos;
         this.puertoSeleccionado = puertoSeleccionado;
     }

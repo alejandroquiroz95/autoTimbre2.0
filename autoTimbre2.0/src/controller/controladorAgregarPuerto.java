@@ -16,12 +16,12 @@ import view.vistaAgregarHora;
 public  class controladorAgregarPuerto implements ActionListener{
     
     /**
-     * Objeto para acceder a la vista Agegar Puerto
+     * Objeto para acceder a la vista Agregar Puerto
      */
     vistaAgregarPuerto objVistaAP;
     
     /**
-     * Objeto para acceder al modelo Agegar Puerto
+     * Objeto para acceder al modelo Agregar Puerto
      */
     modeloAgregarPuerto objModeloAP;
     
@@ -41,7 +41,7 @@ public  class controladorAgregarPuerto implements ActionListener{
     controladorAgregarHora objControladorAH;
     
     /**
-     * Constructor de la clase para instanciar todos los objetos que seran utilizados
+     * Constructor de la clase para inicializar todos los objetos que se declararon
      * @throws IOException
      */
     public controladorAgregarPuerto() throws IOException{
@@ -54,10 +54,8 @@ public  class controladorAgregarPuerto implements ActionListener{
         this.objVistaAP.getBtnAgregarPuerto().addActionListener(this);
     }
     
-    //metodo abstracto que se ejecutara al iniciar la clase principal
-
     /**
-     *
+     * Metodo abstracto que se ejecutara al iniciar la clase principal
      */
     public void IniciarVistaAP() {
         objVistaAP.setTitle("Agregar un puerto serie");

@@ -15,21 +15,59 @@ import model.modeloAgregarHora;
 import model.modeloAgregarPuerto;
 import view.vistaAgregarHora;
 
+/**
+ * Esta clase tipo interfaz se encarga de controlar de manera abstracta todos los eventos de la vista para ageregar las horas
+ * @author Alejandro
+ * @version AutoTimbre 2.0
+ */
 public class controladorAgregarHora implements ActionListener, Runnable{
-    private vistaAgregarHora objVistaAH;
-    private modeloAgregarHora objModeloAH;
-    private modeloAgregarPuerto objModeloAP;
-    private controladorArchivoTexto objModeloAT;
-    private PanamaHitek_Arduino objConexionA; 
-    private DefaultTableModel modeloTabla;
-    Thread hilo1;
     
-    //en el constructor se instancian todos los objetos
+    /**
+     * Objeto para acceder a la vista Agregar Hora
+     */
+    private vistaAgregarHora objVistaAH;
+    
+    /**
+     * Objeto para acceder al modelo Agregar Hora
+     */
+    private modeloAgregarHora objModeloAH;
+    
+    /**
+     * Objeto para acceder al modelo Agegar Puerto
+     */
+    private modeloAgregarPuerto objModeloAP;
+    
+    /**
+     * Objeto para acceder al controlador archivo de texto 
+     */
+    private controladorArchivoTexto objControladorAT;
+    
+    /**
+     * Objeto para generar la conexion con el Arduino
+     */
+    private PanamaHitek_Arduino objConexionA; 
+    
+    /**
+     * Objeto para acceder al controlador archivo de texto 
+     */
+    private DefaultTableModel modeloTabla;
+    
+    /**
+     * Objeto para crear un nuevo hilo
+     */
+    private Thread hiloNuevo;
+    
+    //
+
+    /**
+     * Constructor de la clase para inicializar todos los objetos que se declararon
+     * @throws IOException
+     */
     public controladorAgregarHora() throws IOException{
         this.objVistaAH = new vistaAgregarHora();
         this.objModeloAH = new modeloAgregarHora(null, null);
         this.objModeloAP = new modeloAgregarPuerto(null, null, null);
-        this.objModeloAT = new controladorArchivoTexto();
+        this.objControladorAT = new controladorArchivoTexto();
         this.objConexionA = new PanamaHitek_Arduino();
         this.modeloTabla = new DefaultTableModel();
         this.objVistaAH.getBtnSalir().addActionListener(this);
@@ -37,18 +75,21 @@ public class controladorAgregarHora implements ActionListener, Runnable{
         this.objVistaAH.getBtnAgregarHora().addActionListener(this);
         this.objVistaAH.getBtnEncenderTimbre().addActionListener(this);
     }
-    
-    //metodo abstracto que se ejecutara para iniciar la vista
+
+    /**
+     * Metodo abstracto que se ejecutara para iniciar la vista
+     * @param puertoSeleccionado
+     */
     public void IniciarVistaAH(String puertoSeleccionado){
         objVistaAH.setTitle("AutoTimbre version 2.0");
         objVistaAH.setLocationRelativeTo(null);
         objVistaAH.setVisible(true);
         objVistaAH.tblHoras.setModel(modeloTituloColumna());      
         objVistaAH.tblHoras.setModel(modeloTablaHoras());      
-        hilo1 = new Thread(this);
-        hilo1.start();
+        hiloNuevo = new Thread(this);
+        hiloNuevo.start();
         
-        //inicia la conexion con el puerto donde esta el arduino
+        //inicia la conexion con el puerto serial donde esta el arduino
          try{
          objConexionA.arduinoTX(objModeloAP.getPuertoSeleccionado(), 9600);
         }catch(ArduinoException ex){
@@ -56,7 +97,10 @@ public class controladorAgregarHora implements ActionListener, Runnable{
         }
     }
 
-    //metodo abstracto para desencadenar los eventos que se realicen
+    /**
+     * Metodo abstracto para desencadenar los eventos que se realicen los componentes de la vista
+     * @param e Parametro para agregar el evento
+     */
     public void actionPerformed(ActionEvent e) {
         // Evento del boton salir
         if(objVistaAH.getBtnSalir() == e.getSource()){
@@ -65,14 +109,14 @@ public class controladorAgregarHora implements ActionListener, Runnable{
         
         // Evento del boton eliminar
         if(objVistaAH.getBtnEliminar() == e.getSource()){
-            objModeloAT.EliminarArchivo();
+            objControladorAT.EliminarArchivo();
             objVistaAH.tblHoras.setModel(modeloTablaLimpiar());    
         }
         
         // Evento del boton agregar hora
         if(objVistaAH.getBtnAgregarHora()== e.getSource()){
-            objModeloAT.CrearArchivo();
-            objModeloAT.EscribirArchivo(objVistaAH.getSpHoras().getValue().toString() + ":" + objVistaAH.getSpMinutos().getValue().toString() + ":" + objVistaAH.getSpSegundos().getValue().toString() + ",");
+            objControladorAT.CrearArchivo();
+            objControladorAT.EscribirArchivo(objVistaAH.getSpHoras().getValue().toString() + ":" + objVistaAH.getSpMinutos().getValue().toString() + ":" + objVistaAH.getSpSegundos().getValue().toString() + ",");
             objVistaAH.tblHoras.setModel(modeloTablaLimpiar());   
             objVistaAH.tblHoras.setModel(modeloTablaHoras());
         }
@@ -83,6 +127,9 @@ public class controladorAgregarHora implements ActionListener, Runnable{
         }
     }
     
+    /**
+     * Metodo adstracto que obtiene la hora actual tomada de la computadora
+     */
     public void HoraActual() {
         String horaActual = null;
         Calendar calendario = new GregorianCalendar();
@@ -96,15 +143,21 @@ public class controladorAgregarHora implements ActionListener, Runnable{
         objModeloAH.setHoraActual(horas + ":" + minutos + ":" + segundos);
     }
     
+    /**
+     * Metodo abstracto que obtiene del archivo de texto todas las horas programadas para timbrar y las guarda en un arreglo
+     */
     public void HorasTimbrar(){
         String[] horasTimbrar = null;
-        String cadenaHoras = objModeloAT.LeerArchivo();
+        String cadenaHoras = objControladorAT.LeerArchivo();
         if(!cadenaHoras.isEmpty() && cadenaHoras != null){
             cadenaHoras = cadenaHoras.substring(0, cadenaHoras.length()-1);
             objModeloAH.setHorasTimbrar(cadenaHoras.split(","));
         }
     }
 
+    /**
+     * Metodo abstracto que compara la hora actual con las del arreglo de horas programadas y verifica si son iguales
+     */
     public void Timbrar(){
          HoraActual();
          HorasTimbrar();
@@ -118,6 +171,9 @@ public class controladorAgregarHora implements ActionListener, Runnable{
         }
     }   
         
+    /**
+     * Metodo abstracto que manda el valor 1 al Arduino para que active el timbre
+     */
     public void TocarTimbre(){
         try {
             objConexionA.sendData("1");
@@ -126,11 +182,19 @@ public class controladorAgregarHora implements ActionListener, Runnable{
         }
     }
     
+    /**
+     * Metodo que agrega y asigna el titulo de la columna a la tabla
+     * @return Retorna el modelo de la tabla
+     */
     public DefaultTableModel modeloTituloColumna(){
         this.modeloTabla.addColumn("Horarios");
         return this.modeloTabla;
     }
     
+    /**
+     * Metodo que agrega las filas con las horas programadas a la tabla
+     * @return Retorna el modelo de la tabla
+     */
     public DefaultTableModel modeloTablaHoras(){
         String a[] = new String[1];
         HorasTimbrar();
@@ -143,13 +207,20 @@ public class controladorAgregarHora implements ActionListener, Runnable{
         return this.modeloTabla;
     }
     
+    /**
+     * Metodo que asigna un valor de 0 a las filas de las tablas
+     * @return Retorna el modelo de la tabla
+     */
     public DefaultTableModel modeloTablaLimpiar(){
         this.modeloTabla.setRowCount(0);
         return this.modeloTabla;
     } 
         
+    /**
+     * Metodo que verifica si el hilo nuevo sigue con vida y manda a llamar al metodo Timbrar cada segundo
+     */
     public void run(){
-        while(hilo1.isAlive()){
+        while(hiloNuevo.isAlive()){
             Timbrar();
             //lblHoraActual.setText(horaActual);
             try{
